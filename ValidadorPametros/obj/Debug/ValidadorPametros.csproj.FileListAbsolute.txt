@@ -1,0 +1,10 @@
+c:\users\nrodas\documents\visual studio 2013\Projects\ValidadorPametros\ValidadorPametros\bin\Debug\ValidadorPametros.exe.config
+C:\Users\nrodas\documents\visual studio 2013\Projects\ValidadorPametros\ValidadorPametros\obj\Debug\ValidadorPametros.csprojResolveAssemblyReference.cache
+C:\Users\nrodas\documents\visual studio 2013\Projects\ValidadorPametros\ValidadorPametros\bin\Debug\ValidadorPametros.exe
+C:\Users\nrodas\documents\visual studio 2013\Projects\ValidadorPametros\ValidadorPametros\bin\Debug\ValidadorPametros.pdb
+C:\Users\nrodas\documents\visual studio 2013\Projects\ValidadorPametros\ValidadorPametros\bin\Debug\FluentValidation.dll
+C:\Users\nrodas\documents\visual studio 2013\Projects\ValidadorPametros\ValidadorPametros\bin\Debug\FluentValidation.xml
+C:\Users\nrodas\documents\visual studio 2013\Projects\ValidadorPametros\ValidadorPametros\obj\Debug\ValidadorPametros.exe
+C:\Users\nrodas\documents\visual studio 2013\Projects\ValidadorPametros\ValidadorPametros\obj\Debug\ValidadorPametros.pdb
+C:\Users\nrodas\Documents\Visual Studio 2013\Projects\ValidadorPametros\ValidadorPametros\bin\Debug\log4net.dll
+C:\Users\nrodas\Documents\Visual Studio 2013\Projects\ValidadorPametros\ValidadorPametros\bin\Debug\log4net.xml
