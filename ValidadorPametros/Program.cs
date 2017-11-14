@@ -31,7 +31,8 @@ namespace ValidadorPametros
             elem.Add(new XElement("PJArazonSocial", "TELCOM S.A DE C.V."));
             elem.Add(new XElement("PJAdomicilioComercial", ""));
             elem.Add(new XElement("PJAactividadEconomica", null));
-            var validador = new PersonaValidator("PJA", "tipoPersona");
+            elem.Add(new XElement("PJAnumeroIdentificacionT", null));
+            var validador = new PersonaValidator("PJA", "tipoPersona","Persona juridica A");
             var v = validador.Validate(elem);
             foreach (ValidationFailure s in v.Errors)
             {
