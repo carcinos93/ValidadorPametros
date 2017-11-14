@@ -32,7 +32,7 @@ namespace ValidadorPametros.Validators
     {
         private string _mask;
         public DateValidator(string mask)
-            : base("{PropertyValue} no es una fecha valida, intente un formato valido {mask}")
+            : base("El campo {PropertyName} no es una fecha valida, intente un formato valido {mask}")
         {
             _mask = mask;
         }

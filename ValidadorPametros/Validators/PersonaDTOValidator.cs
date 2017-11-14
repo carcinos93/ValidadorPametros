@@ -32,13 +32,44 @@ namespace ValidadorPametros.Validators
             {    
                 RuleSet("nombrePersona", () =>
                 {
-                    RuleFor(x => x.Element(x.Name.Namespace + tipo + "primerNombre").Value).NotEmpty().WithName("primerNombre");
-                    RuleFor(x => x.Element(x.Name.Namespace + tipo + "segundoNombre").Value).NotEmpty().WithName("segundoNombre");
-                    RuleFor(x => x.Element(x.Name.Namespace + tipo + "primerApellido").Value).NotEmpty().WithName("primerApellido");
-                   
+                    RuleFor(x => x.Element(x.Name.Namespace + tipo + "primerNombre").Value)
+                        .NotEmpty()
+                        .WithName("primerNombre")
+                        .WithMessage((t, s) => { return string.Format("El campo {0} de {1} es requerido", "primerNombre", descripcion); });
+
+                    //RuleFor(x => x.Element(x.Name.Namespace + tipo + "segundoNombre").Value).NotEmpty().WithName("segundoNombre");
+                    RuleFor(x => x.Element(x.Name.Namespace + tipo + "primerApellido").Value)
+                        .NotEmpty()
+                        .WithName("primerApellido")
+                        .WithMessage((t, s) => { return string.Format("El campo {0} de {1} es requerido", "primerApellido", descripcion); });
                 });
-                RuleFor(x => x.Element(x.Name.Namespace + tipo + "numeroDocumento").Value).NotEmpty().WithName("numeroDocumento");
-                RuleFor(x => x.Element(x.Name.Namespace + tipo + "fechaNacimiento").Value).NotEmpty().DateValidator("yyyy-MM-dd");
+
+                RuleFor(x => x.Element(x.Name.Namespace + tipo + "personaDomicilio").Value)
+                        .NotEmpty()
+                        .WithName("personaDomicilio")
+                        .WithMessage((t, s) => { return string.Format("El campo {0} de {1} es requerido", "personaDomicilio", descripcion); });
+               
+                RuleFor(x => x.Element(x.Name.Namespace + tipo + "numeroDocumento").Value)
+                        .NotEmpty()
+                        .WithName("numeroDocumento")
+                        .WithMessage((t, s) => { return string.Format("El campo {0} de {1} es requerido", "numeroDocumento", descripcion); });
+
+                RuleFor(x => x.Element(x.Name.Namespace + tipo + "fechaNacimiento").Value)
+                    .NotEmpty()
+                    .WithMessage(string.Format("El campo {0} de {1} es requerido", "fechaNacimiento", descripcion))
+                    .WithName("fechaNacimiento")
+                    .DateValidator("yyyy-MM-dd")
+                    .WithMessage((t) => { return "El campo {PropertyName} de " + descripcion + " no es una fecha valida, intente un formato valido {mask}"; });
+
+                RuleFor(x => x.Element(x.Name.Namespace + tipo + "codigoEstadoCivil").Value)
+                    .NotEmpty()
+                    .WithName("codigoEstadoCivil")
+                    .WithMessage((t, s) => { return string.Format("El campo {0} de {1} es requerido", "codigoEstadoCivil", descripcion); });
+                RuleFor(x => x.Element(x.Name.Namespace + tipo + "codigoEstadoCivil").Value)
+                    .NotEmpty()
+                    .WithName("tipoDocumento")
+                    .WithMessage((t, s) => { return string.Format("El campo {0} de {1} es requerido", "tipoDocumento", descripcion); });
+                ///
             });
            
              
@@ -61,8 +92,6 @@ namespace ValidadorPametros.Validators
                 RuleFor(x => x.Element(x.Name.Namespace + tipo + "numeroIdentificacionT").Value)
                     .NotEmpty()
                     .WithMessage((t, s) => { return string.Format("El campo {0} de {1} es requerido", "numeroIdentificacionT",descripcion); });
-
-
             });
         }
     }
