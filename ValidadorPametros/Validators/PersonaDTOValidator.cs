@@ -20,11 +20,16 @@ namespace ValidadorPametros.Validators
     /// </summary>
     public class PersonaValidator : AbstractValidator<XElement>
     {
-        public PersonaValidator(string tipo, string tipoPersonaCampo)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ValidadorPametros.Validators.PersonaValidator"/> class.
+        /// </summary>
+        /// <param name="tipo"></param>
+        /// <param name="tipoPersonaCampo"></param>
+        public PersonaValidator(string tipo, string tipoPersonaCampo, string descripcion)
         {
             ///SI LA PERSONA ES NATURAL
             When(x => x.Element(x.Name.Namespace + tipoPersonaCampo).Value == "1", () =>
-            {
+            {    
                 RuleSet("nombrePersona", () =>
                 {
                     RuleFor(x => x.Element(x.Name.Namespace + tipo + "primerNombre").Value).NotEmpty().WithName("primerNombre");
@@ -34,27 +39,28 @@ namespace ValidadorPametros.Validators
                 });
                 RuleFor(x => x.Element(x.Name.Namespace + tipo + "numeroDocumento").Value).NotEmpty().WithName("numeroDocumento");
                 RuleFor(x => x.Element(x.Name.Namespace + tipo + "fechaNacimiento").Value).NotEmpty().DateValidator("yyyy-MM-dd");
-
             });
+           
+             
             ///SI LA PERSONA ES JURIDICA
             When(x => x.Element(x.Name.Namespace + tipoPersonaCampo).Value == "2", () =>
             {
                 ///Razon social
                 RuleFor(x => x.Element(x.Name.Namespace + tipo + "razonSocial").Value)
-                    .NotEmpty();
-                   // .WithMessage((t, s) => { return string.Format("El campo {0} es requerido", t.Name.LocalName); });
+                    .NotEmpty()
+                    .WithMessage((t, s) => { return string.Format("El campo {0} de {1} es requerido","razonSocial",descripcion); });
                 ///Domicilio comercial
                 RuleFor(x => x.Element(x.Name.Namespace + tipo + "domicilioComercial").Value)
-                    .NotEmpty();
-                    //.WithMessage((t, s) => { return string.Format("El campo {0} es requerido", t.Name.LocalName); });
-                ///Actividad economica
+                    .NotEmpty()
+                    .WithMessage((t, s) => { return string.Format("El campo {0} de {1} es requerido", "domicilioComercial",descripcion); });
+                ///Actividad economica|
                 RuleFor(x => x.Element(x.Name.Namespace + tipo + "actividadEconomica").Value)
-                    .NotEmpty();
-                    //.WithMessage((t, s) => { return string.Format("El campo {0} es requerido", t.Name.LocalName); });
+                    .NotEmpty()
+                    .WithMessage((t, s) => { return string.Format("El campo {0} de {1} es requerido", "actividadEconomica", descripcion); });
                 ///Numero de identificacion 
                 RuleFor(x => x.Element(x.Name.Namespace + tipo + "numeroIdentificacionT").Value)
-                    .NotEmpty();
-                    //.WithMessage((t, s) => { return string.Format("El campo {0} es requerido", t.Name.LocalName); });
+                    .NotEmpty()
+                    .WithMessage((t, s) => { return string.Format("El campo {0} de {1} es requerido", "numeroIdentificacionT",descripcion); });
 
 
             });
