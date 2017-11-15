@@ -16,8 +16,8 @@ namespace ValidadorPametros
         {
             XElement elem = new XElement("detalleTransacciones");
             elem.Add(new XElement("tipoPersona", "1"));
-            elem.Add(new XElement("PTprimerApellido", "Rodas"));
-            elem.Add(new XElement("PTsegundoApellido", "Rodas"));
+            elem.Add(new XElement("PTprimerApellido", ""));
+            elem.Add(new XElement("PTsegundoApellido", ""));
             elem.Add(new XElement("PTapellidoCasado", null));
             elem.Add(new XElement("PTprimerNombre", ""));
             elem.Add(new XElement("PTsegundoNombre", null));
@@ -26,7 +26,14 @@ namespace ValidadorPametros
             elem.Add(new XElement("PTpersonaDomicilio", ""));
             elem.Add(new XElement("PTcodigoEstadoCivil", ""));
             elem.Add(new XElement("PTtipoDocumento", ""));
-            var validador = new PersonaValidator("PT", "tipoPersona","Persona fisica");
+
+            elem.Add(new XElement("codigoColaborador", ""));
+            elem.Add(new XElement("cargoColaborador", ""));
+            elem.Add(new XElement("PSidMunicipio", ""));
+            elem.Add(new XElement("PSidDepartamento", ""));
+            elem.Add(new XElement("fechaTransaccion", null));
+            //var validador = new PersonaValidator("PT", "tipoPersona","Persona fisica"); 
+            var validador = new TransaccionEfectivoValidator();
             var v = validador.Validate(elem, ruleSet: "default,nombrePersona");
           
         
